@@ -1,33 +1,17 @@
-"use client"
+import React from 'react';
 
-import React, { useState } from 'react';
-
-export default function NewItem(){
-    const [value, setValue] = useState(1);
-
-    let minusDisable = true;
-    let addDisable = false;
-
-    if (value >= 20){
-        addDisable = true;
-    }else{
-        addDisable = false;
-    }
-
-    if (value <= 1){
-        minusDisable = true;
-    }else{
-        minusDisable = false;
-    }
+export default function AmountValue({ value, setValue }) {
+    let minusDisable = value <= 1;
+    let addDisable = value >= 20;
 
     const handleIncrement = () => {
-        if (value < 20){
+        if (value < 20) {
             setValue(value + 1);
         }
     };
 
     const handleDecrement = () => {
-        if (value > 1){
+        if (value > 1) {
             setValue(value - 1);
         }
     };
